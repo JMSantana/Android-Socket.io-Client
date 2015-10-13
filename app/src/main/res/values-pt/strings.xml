@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Socket Client</string>
+
+    <string name="identification">Identificação</string>
+    <string name="type_your_name">Digite seu nome</string>
+    <string name="address">Endereço</string>
+    <string name="port">Porta</string>
+    <string name="connect">Conectar</string>
+    <string name="send">Enviar</string>
+    <string name="host">localhost</string>
+    <string name="port_example">3000</string>
+    <string name="title_activity_chat">ChatActivity</string>
+    <string name="connection_error">Erro ao conectar com o servidor!</string>
+    <string name="says">diz</string>
+    <string name="connected_to_server">Connected to server</string>
+
+    <string name="action_leave">Sair</string>
+    <string name="action_send">Enviar</string>
+    <string name="prompt_message">Mensagem</string>
+
+    <!-- messages -->
+    <string name="message_welcome">Welcome to Socket.IO Chat –</string>
+    <plurals name="message_participants">
+        <item quantity="one">Há %d participante</item>
+        <item quantity="other">Há %d participantes</item>
+    </plurals>
+    <string name="message_user_joined">%s entrou</string>
+    <string name="message_user_left">%s saiu</string>
+    <string name="user_action_typing">está digitando</string>
+</resources>
