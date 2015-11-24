@@ -19,16 +19,61 @@ import socketclient.lg.com.socketclient.R;
  */
 public class MainActivity extends AppCompatActivity implements ActivityGenericsInterface {
 
+    //UI components
+    private EditText etIdentification;
+    private EditText etAddress;
+    private EditText etPort;
+    private Button btnConnect;
+
+    //Request code
+    private static final int REQUEST_CODE = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Get the reference to the UI components
+        initializeUIComponents();
+
+        //Listening the button action
+        btnConnect.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //Get UI components text
+                String identification = etIdentification.getText().toString();
+                String address = etAddress.getText().toString();
+                Integer port = Integer.parseInt(etPort.getText().toString());
+
+            }
+        });
     }
 
     /**
      * Get UI components references
      */
     public void initializeUIComponents() {
+        etIdentification = (EditText) findViewById(R.id.etIdentification);
+        etAddress = (EditText) findViewById(R.id.etAddress);
+        etPort = (EditText) findViewById(R.id.etPort);
+        btnConnect = (Button) findViewById(R.id.btnConnect);
+
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setHomeButtonEnabled(false);
+        } catch (Exception e){
+            Log.e("phys timer", e.getMessage());
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE && resultCode == ErrorConstants.getConnectionError()){
+            Toast.makeText(this, getResources().getString(R.string.connection_error), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
