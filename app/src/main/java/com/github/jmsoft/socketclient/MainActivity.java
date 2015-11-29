@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements ActivityGenericsI
                 String address = etAddress.getText().toString();
                 Integer port = Integer.parseInt(etPort.getText().toString());
 
+                attemptToConnect(identification, address, port);
             }
         });
     }
@@ -65,6 +66,18 @@ public class MainActivity extends AppCompatActivity implements ActivityGenericsI
         } catch (Exception e){
             Log.e("phys timer", e.getMessage());
         }
+    }
+
+    /**
+     * Start chat activity with parameters
+     */
+    public void attemptToConnect(String identification, String address, Integer port) {
+        Intent connectIntent = new Intent(this, ChatActivity.class);
+        connectIntent.putExtra("identification", identification);
+        connectIntent.putExtra("address", address);
+        connectIntent.putExtra("port", port);
+
+        startActivityForResult(connectIntent, REQUEST_CODE);
     }
 
     @Override
