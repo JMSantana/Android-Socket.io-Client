@@ -1,7 +1,7 @@
-This is an Android Java Client which connect to a socket server to send and receive messages.
+This is an Android Java Client which connects to a NodeJS server to send and receive messages.
 
-There is a chatServer.jar file in the root repository folder so you can test the Android client with.
+In order to run the server, access nodejs server chat-example folder and run:
 
-Just run it with:
+node index.js
 
-java -jar chatServer.jar
+Then, build and run the Android client and connect to NodeJS IP and port.
